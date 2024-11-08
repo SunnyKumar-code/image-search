@@ -4,7 +4,7 @@ This project is a responsive image search web application that uses the [Unsplas
 
 ## Demo
 
-Check out the live demo here: [Image Search Application](https://your-demo-link.com)
+Check out the live demo here: [Image Search Application](https://sunnykumar-code.github.io/image-search/)
 
 ## Features
 
