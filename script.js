@@ -41,9 +41,9 @@
             let li = document.createElement('li');
             let img = document.createElement('img');
             let dis = document.createElement('p');
-            dis.textContent = image.alt_description || 'No description available';
+            dis.textContent = image.alt_description;
             img.src = image.urls.small;
-            img.alt = image.description || 'Unsplash Image';
+            img.alt = image.description;
             li.appendChild(img);
             li.appendChild(dis);
             imageList.appendChild(li);
