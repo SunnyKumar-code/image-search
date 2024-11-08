@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getImages(search, page) {
         try {
             let response = await fetch(`${url}${search}&page=${page}&per_page=10`);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+           
             let data = await response.json();
             displayImages(data.results);
             if (data.results.length > 0) {
