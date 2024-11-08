@@ -3,33 +3,51 @@ document.addEventListener('DOMContentLoaded', () => {
     let searchText = document.getElementById('searchInput');
     let searchbtn = document.getElementById('submit');
     let imageList = document.getElementById('imageList');
+    let showMoreBtn = document.getElementById('showMore');
+    let currentPage = 1;
+    let currentSearch = '';
 
     searchbtn.addEventListener('click', () => {
-        let search = searchText.value;
-        getImages(search);
+        currentSearch = searchText.value;
+        currentPage = 1;
+        imageList.innerHTML = ''; 
+        getImages(currentSearch, currentPage);
     });
 
-    async function getImages(search) {
-        
-            let response = await fetch(`${url}${search}`);
+    showMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        getImages(currentSearch, currentPage);
+    });
+
+    async function getImages(search, page) {
+        try {
+            let response = await fetch(`${url}${search}&page=${page}&per_page=10`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             let data = await response.json();
-            console.log(data.results);
             displayImages(data.results);
-        
+            if (data.results.length > 0) {
+                showMoreBtn.style.display = 'block';
+            } else {
+                showMoreBtn.style.display = 'none'; 
+            }
+        } catch (error) {
+            console.error('Error fetching images:', error);
+            alert('Failed to fetch images. Please try again later.');
+        }
     }
 
     function displayImages(images) {
-        imageList.innerHTML = ''; 
         images.forEach(image => {
             let li = document.createElement('li');
             let img = document.createElement('img');
             let dis = document.createElement('p');
-            dis.textContent = image.alt_description;
-            
+            dis.textContent = image.alt_description || 'No description available';
             img.src = image.urls.small;
-            img.alt = image.description;
+            img.alt = image.description || 'Unsplash Image';
             li.appendChild(img);
-            li.appendChild(dis)
+            li.appendChild(dis);
             imageList.appendChild(li);
         });
     }

@@ -8,20 +8,25 @@ Check out the live demo here: [Image Search Application](https://sunnykumar-code
 
 ## Features
 
-- **Search Functionality**: Enter a search query to retrieve images.
-- **Responsive Design**: Adapts to different screen sizes, making it usable on both mobile and desktop devices.
-- **Image Descriptions**: Each image comes with a short description, if available.
-- **Hover Effects**: Interactive hover effects for buttons and image cards.
+- Search for images using the Unsplash API.
+- Display search results with image descriptions.
+- Load more images with the "Show More" button.
+- Responsive design for different screen sizes.
 
 ## Technologies Used
 
-- **HTML**: Structure of the web page.
-- **CSS**: Styling for a clean and responsive UI.
-- **JavaScript**: Fetches images from the Unsplash API and dynamically displays them on the page.
-- **Unsplash API**: Provides access to a large library of high-quality images.
+- HTML
+- CSS
+- JavaScript
+- Unsplash API
 
-## Setup and Usage
+## Setup Instructions
 
-1. **Clone the repository**:
+1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/yourusername/image-search-app.git
+   git clone https://github.com/your-username/image-search-app.git
+   cd image-search-app
+
+
+
